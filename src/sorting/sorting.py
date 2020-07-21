@@ -37,15 +37,19 @@ def merge(arrA, arrB):
 	# return merged array
 	return merged_arr
 
-# a = [3, 4]
-# b = [2, 7]
-# [print(merge(a, b))]
-
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
-	# Your code here
-
-
+	# check if array length is greater than 1
+	if len(arr) > 1:
+		# get mid point by dividing length of array by 2
+		mid = len(arr) // 2
+		# call merge_sort fn on left side of array
+		arrA = merge_sort(arr[:mid])
+		# call merge_sort fn on right side of array
+		arrB = merge_sort(arr[mid:])
+		# merge the two arrays and assign the return value to arr variable
+		arr = merge(arrA, arrB)
+	# return array
 	return arr
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't
