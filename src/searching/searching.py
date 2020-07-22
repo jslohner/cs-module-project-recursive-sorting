@@ -12,20 +12,14 @@ def binary_search(arr, target, start, end):
 		return mid
 	# if target is less than mid
 	elif target < arr[mid]:
-		# new endpoint is mid minus 1
-		# because current mid has been checked
-		end = mid - 1
 		# return binary_search function call passing
 		# in the new end value with the existing data
-		return binary_search(arr, target, start, end)
+		return binary_search(arr, target, start, mid - 1)
 	# if target is greater than mid
 	elif target > arr[mid]:
-		# new startpoint is mid plus 1
-		# because current mid has been checked
-		start = mid + 1
 		# return binary_search function call passing
 		# in the new start value with the existing data
-		return binary_search(arr, target, start, end)
+		return binary_search(arr, target, mid + 1, end)
 	# if target isn't found in array return -1
 	return -1
 
